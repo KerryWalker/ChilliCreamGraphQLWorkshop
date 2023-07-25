@@ -1,14 +1,16 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using ConferencePlanner.GraphQL.Common;
 using ConferencePlanner.GraphQL.Data;
 using ConferencePlanner.GraphQL.Extensions;
 using HotChocolate;
+using HotChocolate.Types;
 
-namespace ConferencePlanner.GraphQL
+namespace ConferencePlanner.GraphQL.Speakers
 {
-    public class Mutation
+    [ExtendObjectType("Mutation")]
+    public class SpeakerMutations
     {
-
-
         [UseApplicationDbContext]
         public async Task<AddSpeakerPayload> AddSpeakerAsync(
             AddSpeakerInput input,
